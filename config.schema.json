@@ -1,0 +1,106 @@
+{
+  "pluginAlias": "tapo-camera",
+  "pluginType": "platform",
+  "singular": true,
+  "headerDisplay": "Homebridge plugin for TP-Link TAPO security cameras",
+  "footerDisplay": null,
+  "form": null,
+  "display": null,
+  "schema": {
+    "cameras": {
+      "type": "array",
+      "items": {
+        "title": "Camera",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "required": true,
+            "description": "Set the camera name for display in the Home app",
+            "placeholder": "My Camera"
+          },
+          "ipAddress": {
+            "title": "IP Address",
+            "type": "string",
+            "required": true,
+            "description": "Set the camera IP address",
+            "placeholder": "192.168.0.XXX"
+          },
+          "username": {
+            "title": "TAPO username",
+            "type": "string",
+            "description": "Most of the time you should leave this empty, defaulting to admin. If it doesn't work, try to use your streaming username (see below)"
+          },
+          "password": {
+            "title": "TAPO password",
+            "type": "string",
+            "required": true,
+            "description": "Password of your TAPO Cloud (the one you use to login the application, not the password for the RTSP configuration). If it doesn't work, try to use your streaming password (see below)"
+          },
+          "streamUser": {
+            "title": "Stream User",
+            "type": "string",
+            "required": true,
+            "description": "Username to access the RTSP video feed (You can find them in TAPO app > Settings > Advanced Settings > Camera Account) - Note: This must be only alphanumeric [A-Za-z0-9], no special characters allowed!",
+            "placeholder": "user"
+          },
+          "streamPassword": {
+            "title": "Stream Password",
+            "type": "string",
+            "required": true,
+            "description": "Password to access the RTSP video feed (You can find them in TAPO app > Settings > Advanced Settings > Camera Account) - Note: This must be only alphanumeric [A-Za-z0-9], no special characters allowed!"
+          },
+          "pullInterval": {
+            "title": "Pull Interval",
+            "type": "integer",
+            "description": "Numbers of milliseconds after we update accessories by polling the status of the camera",
+            "placeholder": 60000
+          },
+          "debug": {
+            "title": "Debug",
+            "type": "boolean",
+            "description": "Enables debugging of the underlying camera-ffmpeg plugin"
+          },
+          "disableStreaming": {
+            "title": "Disable Streaming",
+            "type": "boolean",
+            "description": "Disables the video feed accessory"
+          },
+          "disablePrivacyAccessory": {
+            "title": "Disable Privacy",
+            "type": "boolean",
+            "description": "Disables the privacy mode switch accessory"
+          },
+          "disableAlarmAccessory": {
+            "title": "Disable Alarm",
+            "type": "boolean",
+            "description": "Disables the Alarm switch accessory"
+          },
+          "disableMotionAccessory": {
+            "title": "Disable Motion",
+            "type": "boolean",
+            "description": "Disables the Motion Detection accessory"
+          },
+          "lowQuality": {
+            "title": "Low Quality",
+            "type": "boolean",
+            "description": "Video stream will be requested in low-quality (640x480) instead of HQ (1920x1080)"
+          },
+          "privacyAccessoryName": {
+            "title": "Privacy Accessory Name",
+            "type": "string",
+            "description": "Name of the Privacy accessory",
+            "placeholder": "Eyes"
+          },
+          "alarmAccessoryName": {
+            "title": "Alarm Accessory Name",
+            "type": "string",
+            "description": "Name of the Alarm accessory",
+            "placeholder": "Alarm"
+          }
+        }
+      }
+    }
+  }
+}
